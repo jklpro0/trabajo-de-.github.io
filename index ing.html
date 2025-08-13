@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Industrialización del Litio | Estrategia Nacional</title>
+
+  <style>
+    /* =========== Variables / theme =========== */
+    :root{
+      --bg: #f3f4ef;
+      --accent-1: #a4262c; /* rojo institucional */
+      --accent-2: #386641; /* verde institucional */
+      --accent-3: #f0a500; /* dorado */
+      --card-bg: #ffffff;
+      --muted: #556b5f;
+      --glass: rgba(255,255,255,0.85);
+      --shadow-1: 0 8px 22px rgba(0,0,0,0.12);
+      --shadow-2: 0 14px 40px rgba(0,0,0,0.14);
+      --radius: 14px;
+      --max-width: 1200px;
+    }
+
+    /* Respect user preference for reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      :root { --reduced-motion: 1; }
+    }
+
+    /* =========== Reset básico =========== */
+    * { box-sizing: border-box; margin:0; padding:0; }
+    html,body { height:100%; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, "Segoe UI Emoji", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#00ffdd 0%, var(--bg) 250%);
+      color: #2f3430;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    .page {
+      width: 95%;
+      max-width: var(--max-width);
+      margin: 0 auto 120px;
+    }
+
+    /* =========== Header / Nav =========== */
+    header {
+      background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+      color: #fff;
+      position: sticky;
+      top:0;
+      z-index:999;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    }
+    .topbar {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand {
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo {
+      width:44px;
+      height:44px;
+      border-radius:10px;
+      background:linear-gradient(135deg,#fff1e0,rgba(255,255,255,0.1));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      color:var(--accent-1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      font-family: Georgia, serif;
+    }
+    nav ul {
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap:20px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration:none;
+      font-weight:700;
+      padding:8px 10px;
+      border-radius:8px;
+      transition: background .18s ease, transform .12s ease;
+    }
+    nav a:focus { outline: 3px solid rgba(240,165,0,0.18); outline-offset:4px; }
+    nav a:hover { background: rgba(255,255,255,0.06); transform:translateY(-2px); }
+
+    /* =========== Hero =========== */
+    .hero {
+      margin-top: 18px;
+      border-radius: 18px;
+      overflow: hidden;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:72px 20px;
+      min-height: 320px;
+      background-image: linear-gradient(135deg, rgba(56,102,65,0.9), rgba(212, 216, 5, 0.86),rgba(164,38,44,0.86)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Salar_de_Uyuni%2C_Bolivia.jpg/1200px-Salar_de_Uyuni%2C_Bolivia.jpg');
+      background-size:cover;
+      background-position:center;
+      color: #dd0808;
+      box-shadow: var(--shadow-2);
+    }
+
+    .hero-inner {
+      width:100%;
+      max-width:1100px;
+      text-align:center;
+      backdrop-filter: blur(2px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      padding:30px;
+      border-radius:12px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.6rem);
+      margin-bottom:12px;
+      font-weight:900;
+      letter-spacing: -0.01em;
+      text-shadow: 0 6px 22px rgba(255, 0, 0, 0.45);
+    }
+
+    .hero p {
+      font-weight:600;
+      color: #ff9900;
+      margin-bottom:18px;
+      max-width:900px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .hero .cta {
+      display:inline-flex;
+      gap:12px;
+      align-items:center;
+      background: var(--accent-3);
+      color: #2d2a26;
+      padding:12px 22px;
+      border-radius:40px;
+      font-weight:800;
+      box-shadow: 0 10px 30px rgba(240,165,0,0.18);
+      text-decoration:none;
+    }
+    .hero .cta:active { transform: translateY(1px) scale(.998); }
+
+    /* subtle decorative wave */
+    .hero::after {
+      content:"";
+      position:absolute;
+      bottom: -45px;
+      left: -4%;
+      height:120px;
+      width:108%;
+      background: radial-gradient(closest-side, rgba(255,255,255,0.03), transparent 60%);
+      transform: rotate(2deg);
+      pointer-events:none;
+    }
+
+    /* =========== Layout sections =========== */
+    section { padding: 60px 0; }
+    .section-title {
+      text-align:center;
+      font-family: Georgia, serif;
+      color:var(--accent-2);
+      font-size: clamp(1.3rem, 1.9vw, 2rem);
+      margin-bottom:24px;
+      text-shadow: 0 2px 6px rgba(168,198,134,0.25);
+    }
+
+    /* Card container used in each section */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-1);
+      padding: 26px;
+      margin: 18px auto;
+      max-width: 980px;
+      transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s ease;
+      transform-origin: center;
+      opacity:0;
+      transform: translateY(24px) scale(.995);
+      will-change: transform, opacity;
+    }
+
+    /* When visible, show */
+    .card.is-visible {
+      opacity:1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* hover microinteraction (tilt + lift) */
+    .card:hover {
+      transform: translateY(-8px) rotateX(.5deg) rotateY(.5deg) scale(1.004);
+      box-shadow: var(--shadow-2);
+    }
+
+    /* stagger delays (CSS fallback if JS disabled) */
+    .card[data-delay="1"] { transition-delay: .15s; }
+    .card[data-delay="2"] { transition-delay: .15s; }
+    .card[data-delay="3"] { transition-delay: .15s; }
+    .card[data-delay="4"] { transition-delay: .28s; }
+
+    /* Content inside cards */
+    .content { font-size:1.05rem; color:var(--muted); line-height:1.7; }
+    .content p { margin-bottom:12px; }
+    .content ul { margin-left:18px; margin-top:10px; color: #2f4b3d; font-weight:700; }
+
+    /* Icon inline */
+    .inline-icon { width:22px; height:22px; vertical-align:middle; margin-right:10px; fill:var(--accent-1); }
+
+    /* =========== Impact counters =========== */
+    .counters {
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .counter {
+      flex: 1 1 180px;
+      background: linear-gradient(180deg, rgba(56,102,65,0.03), rgba(164,38,44,0.01));
+      border-radius:12px;
+      padding:14px 18px;
+      text-align:center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    .counter .num {
+      font-size:1.6rem;
+      font-weight:900;
+      color:var(--accent-2);
+      display:block;
+      margin-bottom:6px;
+    }
+    .counter .label { font-weight:700; color:#355a48; font-size:0.95rem; }
+
+    /* =========== Slider tweaks =========== */
+    .slider { max-width: 780px; margin: 6px auto; border-radius:12px; overflow:hidden; background:linear-gradient(180deg,#02ff81,#f6fff6); box-shadow: 0 12px 30px rgba(56,102,65,0.12); }
+    .slides-container { display:flex; transition: transform .55s cubic-bezier(.2,.9,.2,1); }
+    .slide { min-width:100%; padding:28px 32px; }
+    .slide h3{ color:var(--accent-1); margin-bottom:8px; font-size:1.25rem; }
+    .slider-controls { display:flex; gap:12px; justify-content:center; padding:12px 8px; background:transparent; }
+    .slider-button { width:14px; height:14px; border-radius:50%; border:none; background:rgba(164,38,44,0.28); cursor:pointer; transition: transform .15s ease, background .18s ease; box-shadow: 0 4px 12px rgba(240,165,0,0.08); }
+    .slider-button:focus { outline: 2px solid rgba(56,102,65,0.18); outline-offset: 3px; }
+    .slider-button.active { background: var(--accent-3); transform: scale(1.15); box-shadow: 0 8px 24px rgba(240,165,0,0.2); }
+
+    /* =========== Form styles =========== */
+    form {
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      max-width:780px;
+      margin: 6px auto;
+    }
+    label { font-weight:800; color:var(--accent-1); font-size:.95rem; }
+    input[type="text"], textarea {
+      padding:12px 14px;
+      border-radius:10px;
+      border:2px solid #dbe8dd;
+      font-size:1rem;
+      background:#fbfefb;
+      transition: box-shadow .18s ease, border-color .18s ease;
+    }
+    input[type="text"]:focus, textarea:focus {
+      border-color: var(--accent-2);
+      box-shadow: 0 8px 22px rgba(56,102,65,0.08);
+      outline:none;
+    }
+    button[type="submit"] {
+      align-self:flex-start;
+      background:linear-gradient(180deg, var(--accent-1), #711818);
+      color:#ffffff;
+      padding:12px 24px;
+      border-radius:32px;
+      border:none;
+      font-weight:900;
+      letter-spacing:.6px;
+      cursor:pointer;
+      box-shadow: 0 10px 30px rgba(164,38,44,0.18);
+      transition: transform .12s ease, box-shadow .18s ease;
+    }
+    button[type="submit"]:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(164,38,44,0.24); }
+
+    /* Opinions list */
+    #opinionsList { max-width:780px; margin: 18px auto; background: linear-gradient(180deg,#eff9ef,#ffffff); padding:14px 18px; border-radius:12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); display:none; }
+    #opinionsList ul { list-style:none; padding-left:0; }
+    #opinionsList li { padding:8px 10px; border-left:4px solid rgba(56,102,65,0.08); margin-bottom:8px; font-weight:700; color:#2d3f33; }
+
+    /* Footer */
+    footer { position:fixed; bottom:0; left:0; right:0; background:var(--accent-2); color:#fff; padding:12px; text-align:center; font-weight:700; box-shadow: 0 -8px 20px rgba(0,0,0,0.18); z-index:80; }
+
+    /* Responsive */
+    @media (max-width:900px) {
+      .counters { gap:10px; }
+      .hero { padding:54px 18px; min-height: 260px; }
+      .topbar { padding:12px; }
+      nav ul { gap:12px; }
+    }
+
+    @media (max-width:560px) {
+      nav ul { display:none; } /* keep header compact for demo; replace with mobile menu if needed */
+      .page { width:94%; }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">Li</div>
+        <div>
+          <div style="font-weight:900;">Energy & Lithium</div>
+          <div style="font-size:.78rem; opacity:.9;">National Proposal — Energy Sovereignty in Bolivia</div>
+        </div>
+      </div>
+
+      <nav role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About the Initiative</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#opinion">Your Opinion</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" role="main">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero - Lithium Industrialization">
+      <div class="hero-inner card" data-delay="1">
+        <h1>Lithium Industrialization: Strategic Pillar for Bolivia's Energy Sovereignty</h1>
+        <p>
+          Bolivia has one of the world's largest lithium reserves. Vertical integration—from responsible extraction to battery production—represents a structural solution to fossil fuel shortages and an opportunity for sustainable economic development.
+        </p>
+        <a class="cta" href="#solutions">See the Strategies</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="section-title">About the Initiative</h2>
+      <article class="card content" data-delay="2" role="article" aria-describedby="about-desc">
+        <div id="about-desc">
+          <p>
+            Lithium—known as "white gold"—is the critical raw material for rechargeable batteries powering electric vehicles, stationary storage systems, and electronic devices. The proposed strategy seeks to transform extraction into high value-added production chains, mitigating environmental impacts and prioritizing social benefits.
+          </p>
+          <p>
+            Main objectives:
+          </p>
+          <ul>
+            <li>Create integrated industrial complexes for cell production and battery assembly.</li>
+            <li>Promote public and private electric mobility with incentives and fleet renewal programs.</li>
+            <li>Foster research, technical training, and technology transfer through international partnerships.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- IMPACT -->
+    <section id="impact" aria-labelledby="impact-title">
+      <h2 id="impact-title" class="section-title">Economic, Environmental, and Social Impact</h2>
+      <article class="card" data-delay="3" role="region" aria-label="Impact">
+        <div class="content">
+          <p><strong>Responsible lithium industrialization can generate structural benefits:</strong></p>
+
+          <div class="counters" aria-hidden="false">
+            <div class="counter" data-target="21000000" aria-label="Estimated reserves">
+              <span class="num" data-value="21000000">0</span>
+              <span class="label">Estimated tons of lithium</span>
+            </div>
+
+            <div class="counter" data-target="50000" aria-label="Estimated jobs">
+              <span class="num" data-value="50000">0</span>
+              <span class="label">Potential jobs (direct + indirect)</span>
+            </div>
+
+            <div class="counter" data-target="40" aria-label="Emission reduction">
+              <span class="num" data-value="40">0</span>
+              <span class="label">% estimated reduction in transport emissions</span>
+            </div>
+          </div>
+
+          <p style="margin-top:12px;">
+            These indicators must be achieved through public policies that ensure: environmental control, community participation, technology transfer, and sustainable value chains.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section id="solutions" aria-labelledby="solutions-title">
+      <h2 id="solutions-title" class="section-title">Proposed Solutions and Key Strategies</h2>
+
+      <div class="card" data-delay="4" role="region" aria-label="Solutions">
+        <div class="content">
+          <p>
+            To turn the resource into sustainable development, we propose three complementary pillars:
+          </p>
+
+          <div class="slider" role="region" aria-label="Solutions slider">
+            <div class="slides-container" id="slides">
+              <div class="slide">
+                <h3>Integrated Industrial Complexes</h3>
+                <p>
+                  Development of plants integrating refining, cathode production, cell manufacturing, and final assembly, prioritizing local suppliers and supply chain control.
+                </p>
+              </div>
+
+              <div class="slide">
+                <h3>Electric Mobility and Storage</h3>
+                <p>
+                  Tax incentives for public and private fleets, charging infrastructure, and urban transport renewal programs using locally produced batteries.
+                </p>
+              </div>
+
+              <div class="slide">
+                <h3>Innovation Partnerships</h3>
+                <p>
+                  Agreements with universities and technology centers for R&D, specialized training, and standardization of manufacturing and recycling processes.
+                </p>
+              </div>
+            </div>
+
+            <div class="slider-controls" role="tablist" aria-label="Slider controls">
+              <button class="slider-button active" aria-selected="true" aria-controls="slide1" data-index="0" title="Slide 1"></button>
+              <button class="slider-button" aria-selected="false" aria-controls="slide2" data-index="1" title="Slide 2"></button>
+              <button class="slider-button" aria-selected="false" aria-controls="slide3" data-index="2" title="Slide 3"></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OPINION -->
+    <section id="opinion" aria-labelledby="opinion-title">
+      <h2 id="opinion-title" class="section-title">Your Opinion on the National Lithium Strategy</h2>
+
+      <div class="card" data-delay="2" role="form">
+        <form id="opinionForm" aria-label="Opinion form">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+
+          <label for="comment">What do you think about the proposal?</label>
+          <textarea id="comment" name="comment" placeholder="Share your opinion..." required></textarea>
+
+          <button type="submit">Submit Opinion</button>
+        </form>
+
+        <div id="opinionsList" aria-live="polite" aria-atomic="true" role="region">
+          <h3 style="text-align:center; color:var(--accent-1); font-weight:900; margin-bottom:12px;">Received Opinions</h3>
+          <ul id="opinionsUl"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Nicolas Cabrera and Juanda Marin. National Strategy Proposal for Lithium Industrialization in Bolivia.
+  </footer>
+
+  <script>
+    /* ============================
+       Interactivity & animations
+       ============================ */
+
+    // Utility: prefers-reduced-motion
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // IntersectionObserver reveal for .card and counters 
+    (function(){
+      const cards = document.querySelectorAll('.card');
+      const cb = (entries, obs) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            // If counters inside, start them
+            const counters = entry.target.querySelectorAll('.counter .num');
+            counters.forEach(n => startCounter(n));     
+            // once visible, unobserve for performance
+            obs.unobserve(entry.target);
+          }
+        });
+      };
+
+      const io = new IntersectionObserver(cb, { threshold: 0.15 });
+      cards.forEach((c, i) => {
+        // progressive delay attribute used by CSS fallback; JS will add class when visible
+        c.dataset.delay = (i % 6) + 1;
+        io.observe(c);
+      });
+
+      // If reduced motion, show all immediately
+      if(reduceMotion){
+        cards.forEach(c => c.classList.add('is-visible'));
+      }
+    })();
+
+    // Animated counters
+   function startCounter(el){
+  if(el.dataset.started) return;
+  el.dataset.started = '1';
+  const target = parseFloat(el.getAttribute('data-value')) || 0;
+  const duration = 1400; // ms
+  const start = performance.now();
+  const initial = 0;
+  function tick(now){
+    let t = Math.min(1, (now - start)/duration);
+    let eased = (--t)*t*t + 1; // easeOutCubic
+    const val = Math.round(initial + (target - initial)*eased);
+    el.textContent = val.toLocaleString();
+    if(now - start < duration) requestAnimationFrame(tick);
+    else el.textContent = target.toLocaleString();
+  }
+  requestAnimationFrame(tick);
+}
+
+    // Initialize numbers with dataset values (if small numbers like 40 show plain)
+    document.querySelectorAll('.counter .num').forEach(n=>{
+      // ensure num text starts at 0
+      n.textContent = '0';
+      // if target is percentage small integer (e.g. 40), allow normal animation
+    });
+
+    // Slider functionality (accessible, pause on hover)
+    (function(){
+      const slidesContainer = document.getElementById('slides');
+      const buttons = document.querySelectorAll('.slider-button');
+      let index = 0;
+      let timer = null;
+      const len = slidesContainer ? slidesContainer.children.length : 0;
+
+      function go(i){
+        index = (i + len) % len;
+        slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+        buttons.forEach((b,bi)=> {
+          b.classList.toggle('active', bi === index);
+          b.setAttribute('aria-selected', bi === index ? 'true' : 'false');
+        });
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const i = Number(btn.dataset.index);
+          go(i);
+          resetAuto();
+        });
+        btn.addEventListener('keydown', e=>{
+          if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+        });
+      });
+
+      function auto(){
+        timer = setInterval(()=> go(index+1), 7000);
+      }
+      function resetAuto(){ if(timer) { clearInterval(timer); auto(); } }
+
+      // pause on hover/focus
+      const slider = document.querySelector('.slider');
+      if(slider){
+        slider.addEventListener('mouseenter', ()=> clearInterval(timer));
+        slider.addEventListener('mouseleave', ()=> auto());
+        slider.addEventListener('focusin', ()=> clearInterval(timer));
+        slider.addEventListener('focusout', ()=> clearInterval());
+      }
+
+      go(0);
+      if(!reduceMotion) auto();
+    })();
+
+    // Opinions: localStorage
+    (function(){
+      const form = document.getElementById('opinionForm');
+      const opinionsList = document.getElementById('opinionsList');
+      const ul = document.getElementById('opinionsUl');
+
+      function load(){
+        const saved = localStorage.getItem('opinions_v1');
+        if(saved){
+          const arr = JSON.parse(saved);
+          ul.innerHTML = '';
+          arr.forEach(o=>{
+            const li = document.createElement('li');
+            li.textContent = `${o.name}: ${o.comment}`;
+            ul.appendChild(li);
+          });
+          opinionsList.style.display = arr.length ? 'block' : 'none';
+        } else {
+          opinionsList.style.display = 'none';
+        }
+      }
+
+      load();
+
+      form.addEventListener('submit', e=>{
+        e.preventDefault();
+        const name = form.name.value.trim();
+        const comment = form.comment.value.trim();
+        if(!name || !comment) return;
+        const saved = localStorage.getItem('opinions_v1');
+        const arr = saved ? JSON.parse(saved) : [];
+        arr.unshift({ name, comment, at: (new Date()).toISOString() });
+        localStorage.setItem('opinions_v1', JSON.stringify(arr.slice(0,200))); // keep only recent 200
+        load();
+        form.reset();
+        // small confirmation (accessible)
+        const note = document.createElement('div');
+        note.textContent = '¡Gracias! Tu opinión fue registrada.';
+        note.setAttribute('role','status');
+        note.style.padding = '10px';
+        note.style.background = 'linear-gradient(90deg,#e6f4ea,#f7fff7)';
+        note.style.borderRadius = '8px';
+        note.style.marginTop = '8px';
+        form.appendChild(note);
+        setTimeout(()=> note.remove(), 2600);
+      });
+    })();
+
+    // Accessibility: keyboard skip (simple)
+    (function(){
+      const firstNav = document.querySelector('nav a');
+      if(firstNav){
+        firstNav.setAttribute('tabindex','0');
+      }
+    })();
+
+    // Fallback: in case IntersectionObserver not supported, reveal all
+    if(!('IntersectionObserver' in window)){
+      document.querySelectorAll('.card').forEach(c => c.classList.add('is-visible'));
+      document.querySelectorAll('.counter .num').forEach(n => {
+        n.textContent = n.getAttribute('data-value') || '0';
+      });
+    }
+  </script>
+</body>
+</html>
